@@ -15,8 +15,31 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [Stripe setDefaultPublishableKey:@"pk_test_wjlDgmCcYnDSsVgXc88sfai5"];
+    
+    
+    NSUserDefaults *standardDefault = [NSUserDefaults standardUserDefaults];
+    NSString *str_loginCheck = [standardDefault valueForKey:@"Login"];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+     UINavigationController *navigationController;
+    
+    if ([str_loginCheck isEqualToString:@"Login Created"])
+    {
+        ProductListViewController *productListViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProductListViewController"];
+        navigationController = [[UINavigationController alloc] initWithRootViewController:productListViewController];
+    }
+    else
+    {
+        ViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+         navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    }
+    
+     navigationController.navigationBar.hidden = YES;
+    self.window.rootViewController = navigationController;
+    
     return YES;
 }
 

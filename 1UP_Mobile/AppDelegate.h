@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Stripe/Stripe.h>
+#import "ProductListViewController.h"
+#import "ViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

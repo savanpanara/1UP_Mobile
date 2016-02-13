@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SignUpViewController.h"
+#import "SignInViewController.h"
 
 @interface ViewController : UIViewController
+{
+    
+}
 
+-(IBAction)btn_NextTouched:(id)sender;
+-(IBAction)btn_SignUpTouched:(id)sender;
 
 @end
 
